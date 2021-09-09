@@ -1,4 +1,4 @@
-# A combined kNN-SVM confidence-based algorithm for Continuous Implicit Authentication used in Smartphone Applications
+# A combined kNN-SVM confidence-based algorithm for Continuous Implicit Authentication in Smartphone Applications
 
 "Abstract — Due to the dramatic increase in popularity of smart-phones in the past decade, the need for sophisticated patterns that provide user authentication and security of sensitive information is growing. Towards this goal, a variety of biometrics has been applied in the past few years, such as user password, face recognition or fingerprint in order to access the device. In this work we propose a different approach. A continuous implicit authentication model that recognizes the authenticated user in real time, while using their device, through their swiping behavior. To meet this target, a one-class kNN-SVM confidence-based model was created and tested in a quite representative dataset which consists of 975 different users."
 
@@ -11,3 +11,8 @@ Then, after collecting the swipes from these users, we calculated some features 
 An overview of the system is shown in Figure 1. More precisely, as we said before we use the method “one against the universe” so we split the data of the user who we assumed as the legitimate user and all the other data are assumed as “attacker” swipes. Following, we split the user data into training data, which will be used in order to train our model, and testing data, which will be used in order to test if our model recognizes the user correctly. On the other hand, we use the “attackers” data with the purpose of testing if our model can recognize that the person using the smartphone is not an authorized user. The training-testing partition is 75%-25% respectively and we implemented that in R Programming Language with the floor() and sample() functions which assure a non-deterministic way of partitioning. Then, before training our model, we preprocess the training data, since the dataset derives from a real-world application and there are a lot of Outliers which can alter the outcome of the classification. As shown in Figure 1, we used an ensemble method for the classification, in which there are two different models, a kNN model and an SVM model, that give two different prediction results and we summarize those predictions, creating a more accurate final prediction. After calculating the predictions of our models, we introduced to our system a confidence variable which boosted the accuracy of our system.
 
 ![photo](Screenshot_3.png)
+
+Following, in Figure 2 we can see the final model in pseudocode with some R functions, nn2() and predict() needed for the prediction of the kNN and SVM models respectively.
+
+![photo](Screenshot_4.png)
+
