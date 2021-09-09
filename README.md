@@ -6,7 +6,7 @@ In the goal of creating this representative dataset, Papamichail et al. [8] deve
 
 Then, after collecting the swipes from these users, we calculated some features in order to better understand the swiping behavior of each user. These features are shown in Table 2.
 
-![photo](Screenshot_2.png)
+![photo](Screenshots/Screenshot_2.png)
 
 An overview of the system is shown in Figure 1. More precisely, as we said before we use the method “one against the universe” so we split the data of the user who we assumed as the legitimate user and all the other data are assumed as “attacker” swipes. Following, we split the user data into training data, which will be used in order to train our model, and testing data, which will be used in order to test if our model recognizes the user correctly. On the other hand, we use the “attackers” data with the purpose of testing if our model can recognize that the person using the smartphone is not an authorized user. The training-testing partition is 75%-25% respectively and we implemented that in R Programming Language with the floor() and sample() functions which assure a non-deterministic way of partitioning. Then, before training our model, we preprocess the training data, since the dataset derives from a real-world application and there are a lot of Outliers which can alter the outcome of the classification. As shown in Figure 1, we used an ensemble method for the classification, in which there are two different models, a kNN model and an SVM model, that give two different prediction results and we summarize those predictions, creating a more accurate final prediction. After calculating the predictions of our models, we introduced to our system a confidence variable which boosted the accuracy of our system.
 
